@@ -3,7 +3,7 @@ import { getCA } from '@/lib/ca';
 import { buildRootCAPlist } from '@/lib/plist';
 import forge from 'node-forge';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
