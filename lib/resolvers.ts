@@ -5,6 +5,9 @@ export type Resolver = {
   doh: { url: string };
   addresses: { v4: string[]; v6: string[] };
   probe?: { traceUrl: string; expectedMarker: string };
+  // Optional page run by the resolver itself that verifies, from the user's
+  // device, that the device is actually using this resolver. Linked from /test.
+  deviceCheckUrl?: string;
 };
 
 export const RESOLVERS: Record<string, Resolver> = {
@@ -18,6 +21,7 @@ export const RESOLVERS: Record<string, Resolver> = {
       v6: ['2606:4700:4700::1111', '2606:4700:4700::1001'],
     },
     probe: { traceUrl: 'https://1.1.1.1/cdn-cgi/trace', expectedMarker: 'warp=' },
+    deviceCheckUrl: 'https://1.1.1.1/help',
   },
   'cloudflare-families': {
     key: 'cloudflare-families',
@@ -29,6 +33,7 @@ export const RESOLVERS: Record<string, Resolver> = {
       v6: ['2606:4700:4700::1113', '2606:4700:4700::1003'],
     },
     probe: { traceUrl: 'https://1.1.1.3/cdn-cgi/trace', expectedMarker: 'warp=' },
+    deviceCheckUrl: 'https://1.1.1.1/help',
   },
   quad9: {
     key: 'quad9',
@@ -40,6 +45,7 @@ export const RESOLVERS: Record<string, Resolver> = {
       v6: ['2620:fe::fe', '2620:fe::9'],
     },
     probe: { traceUrl: 'https://on.quad9.net/', expectedMarker: 'Quad9' },
+    deviceCheckUrl: 'https://on.quad9.net/',
   },
   adguard: {
     key: 'adguard',

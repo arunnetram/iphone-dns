@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState, Suspense } from 'react';
 import { TestResult } from '@/components/TestResult';
+import { getResolver } from '@/lib/resolvers';
 import { useSearchParams } from 'next/navigation';
 
 type ProbeResult =
@@ -14,11 +15,15 @@ function TestPageInner() {
   const isCustom = expected === 'custom' || !!params.get('url');
   const [result, setResult] = useState<ProbeResult | null>(null);
 
+  const resolver = isCustom ? null : getResolver(expected);
+  const resolverName = resolver?.name ?? (isCustom ? 'Custom resolver' : expected);
+  const deviceCheckUrl = resolver?.deviceCheckUrl;
+
   useEffect(() => {
     if (isCustom) {
       setResult({
         status: 'unknown',
-        reason: 'Automatic verification is not available for custom resolvers. Try a DNS leak test site.',
+        reason: 'Automatic verification isn’t available for custom resolvers. Try a DNS leak test site like dnsleaktest.com.',
       });
       return;
     }
@@ -33,10 +38,10 @@ function TestPageInner() {
       <header className="pt-6 space-y-1">
         <h1 className="text-2xl font-semibold">Verify your DNS</h1>
         <p className="text-sm text-neutral-600">
-          We&apos;re checking whether your DNS is going through <span className="font-medium">{expected}</span>.
+          Checking whether <span className="font-medium">{resolverName}</span> is responding.
         </p>
       </header>
-      <TestResult result={result} />
+      <TestResult result={result} resolverName={resolverName} deviceCheckUrl={deviceCheckUrl} />
       <a href="/" className="block text-center text-sm underline">Back to installer</a>
     </main>
   );
