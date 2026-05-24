@@ -40,9 +40,15 @@ export function InstallSteps({ profileHref }: { profileHref: string }) {
           <p className="text-sm text-neutral-600">
             With the root certificate trusted, the DNS profile will show a green "Verified" badge.
           </p>
-          <Button asChild disabled={!caInstalled} aria-disabled={!caInstalled}>
-            <a href={caInstalled ? profileHref : '#'}>Install DNS profile</a>
-          </Button>
+          {caInstalled ? (
+            <Button asChild>
+              <a href={profileHref}>Install DNS profile</a>
+            </Button>
+          ) : (
+            <Button type="button" disabled aria-disabled="true">
+              Install DNS profile
+            </Button>
+          )}
           {!caInstalled && (
             <p className="text-xs text-neutral-500">Complete Step 1 first.</p>
           )}
