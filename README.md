@@ -1,5 +1,8 @@
 # iphone-dns
 
+[![CI](https://github.com/arunnetram/iphone-dns/actions/workflows/ci.yml/badge.svg)](https://github.com/arunnetram/iphone-dns/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > One-tap iPhone DNS-over-HTTPS profile installer. Self-signed CA, no app needed.
 
 A mobile-first Next.js site that hands an iPhone user a signed `.mobileconfig` profile to switch their device to an encrypted-DNS resolver of their choice — Cloudflare, Quad9, AdGuard, or any custom DoH endpoint. Built on Vercel Functions, no database, no analytics, no user accounts.

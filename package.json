@@ -3,6 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "description": "One-tap iPhone DNS-over-HTTPS profile installer. Self-signed CA, no app needed.",
+  "license": "MIT",
+  "author": {
+    "name": "Arun Netram",
+    "email": "arun.netram@gmail.com"
+  },
+  "homepage": "https://iphone-dns.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunnetram/iphone-dns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arunnetram/iphone-dns/issues"
+  },
+  "keywords": [
+    "dns",
+    "doh",
+    "dns-over-https",
+    "iphone",
+    "ios",
+    "mobileconfig",
+    "vercel",
+    "nextjs",
+    "cloudflare",
+    "quad9",
+    "adguard",
+    "privacy"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

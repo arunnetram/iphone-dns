@@ -1,0 +1,53 @@
+name: Bug report
+description: Report something that isn't working
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file this. **For security issues, please use the private channel in [SECURITY.md](https://github.com/arunnetram/iphone-dns/blob/master/SECURITY.md) instead of a public issue.**
+
+  - type: input
+    id: device
+    attributes:
+      label: Device + iOS version
+      description: e.g. "iPhone 13, iOS 17.4" or "iPhone 7, iOS 15.8.7"
+      placeholder: iPhone model + iOS x.y.z
+    validations:
+      required: true
+
+  - type: dropdown
+    id: page
+    attributes:
+      label: Where did this happen?
+      options:
+        - The main installer page (/)
+        - The verification page (/test)
+        - The about page (/about)
+        - During profile install in iOS Settings
+        - Somewhere else (describe below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, and what did the page or your phone do in response?
+      placeholder: |
+        e.g. I tapped "Download root certificate" and the page scrolled to the top instead of starting the download.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot or recording (optional)
+      description: A screenshot or short screen recording often resolves bug reports in one round-trip.
