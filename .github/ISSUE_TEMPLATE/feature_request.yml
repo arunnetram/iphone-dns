@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a new feature or behavior change
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. This is a small personal project — I'm picky about scope, so please describe the problem first before proposing the solution. Some great ideas are out of scope for this repo and would be more at home as a fork.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: What's the user-facing situation that this feature would improve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would the feature work? Sketches, UI mockups, or pseudocode are welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+      description: Other approaches you thought about and why they're less good. Helps frame the discussion.
